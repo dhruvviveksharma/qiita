@@ -1,15 +1,18 @@
 import sys
-sys.path.append('/path/to/qiita')
 from openai import OpenAI
 from qiita_db.study import Study, StudyPerson
 from qiita_db.sql_connection import TRN
 import pandas as pd
 import json
+from dotenv import load_dotenv
+import os
+load_dotenv()
+API_KEY = os.getenv("API_KEY")
 
 # Initialize Claude client
 client = OpenAI(
     # This is the default and can be omitted
-    api_key = "ifjO4oMMtU6MAXw2wc9cdaCjGU3FfdZs",
+    api_key = API_KEY,
     base_url = "https://ellm.nrp-nautilus.io/v1"
 )
 
